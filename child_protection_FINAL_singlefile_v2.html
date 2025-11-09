@@ -1,0 +1,378 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Child Protection – Recognize. Report. Protect.</title>
+<meta name="description" content="Recognize and report child abuse. Learn signs, prevention, and get help. India helpline 1098."/>
+
+<style>
+  :root{
+    --brand:#2563eb;      /* blue */
+    --accent:#7c3aed;     /* violet */
+    --danger:#dc2626;     /* red */
+    --muted:#6b7280;      /* gray-500 */
+    --panel:#ffffff;
+    --bg:#f7f7fb;
+    --shadow:0 10px 30px rgba(2,8,23,.08);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    background:var(--bg); color:#0f172a; line-height:1.6;
+  }
+  a{color:#0f172a; text-decoration:none}
+  a:hover{text-decoration:underline}
+  .container{max-width:1160px; margin:auto; padding:0 1rem}
+  /* Header */
+  header{
+    position:sticky; top:0; z-index:40; background:#ffffffcc; backdrop-filter:saturate(1.2) blur(10px);
+    border-bottom:1px solid #e5e7eb;
+  }
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:.9rem 0;}
+  .brand{display:flex; align-items:center; gap:.6rem; font-weight:800;}
+  .brand-badge{width:34px;height:34px;border-radius:999px; background:var(--brand); display:grid; place-items:center; color:#fff; font-weight:900}
+  .links{display:flex; gap:1.2rem; align-items:center}
+  .links a{font-weight:600; color:#111827}
+  .callbtn{background:var(--danger); color:#fff; border:0; padding:.55rem .9rem; border-radius:999px; font-weight:700}
+  .callbtn:hover{opacity:.95}
+  /* Hero */
+  .hero{
+    position:relative; min-height:84vh; display:grid; place-items:center; text-align:center; color:#fff;
+    background:
+      linear-gradient(115deg, rgba(37,99,235,.88), rgba(124,58,237,.86)),
+      url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=1600&q=60');
+    background-size:cover; background-position:center;
+  }
+  .hero-inner{padding:3.5rem 1rem 2.5rem}
+  .kicker{display:inline-flex; gap:.5rem; align-items:center; background:#ffffff22; border:1px solid #ffffff44; padding:.35rem .7rem; border-radius:999px; font-weight:600}
+  h1{font-size: clamp(1.8rem, 3.8vw, 3.6rem); line-height:1.1; margin:.7rem 0 1rem; color:#fff}
+  .hero p{max-width:820px; margin:.2rem auto 1.4rem; color:#eef2ff}
+  .cta-row{display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap}
+  .btn{border-radius:999px; padding:.8rem 1.1rem; font-weight:700; border:2px solid #ffffff; background:#fff; color:#0f172a}
+  .btn.secondary{background:transparent; color:#fff}
+  .badge-helpline{margin:1.2rem auto 0; width:max-content; background:#fff; color:#0f172a; padding:1rem 2rem; border-radius:1rem; box-shadow:var(--shadow)}
+  .badge-helpline .big{font-size:2.2rem; font-weight:800}
+  /* Sections */
+  section{padding:64px 0}
+  section h2{font-size: clamp(1.4rem, 2.8vw, 2.6rem); margin:0 0 18px; color:#0f172a}
+  .lead{color:#111827}
+  .card{background:var(--panel); border:1px solid #e5e7eb; border-radius:18px; box-shadow:var(--shadow);}
+  .pad{padding:22px}
+  /* About */
+  .grid2{display:grid; gap:28px}
+  @media(min-width:900px){ .grid2{grid-template-columns:1.1fr .9fr} }
+  .about-img{width:100%; height:360px; object-fit:cover; border-radius:18px; box-shadow:var(--shadow)}
+  .note{background:#e0edff; border-left:4px solid var(--brand); padding:16px; border-radius:9px; color:#0f172a}
+  /* Stats */
+  .stats{display:grid; gap:18px}
+  @media(min-width:900px){ .stats{grid-template-columns:repeat(3,1fr)} }
+  .stat{background:#fff; border:1px solid #e5e7eb; border-radius:16px; padding:24px; text-align:center; box-shadow:var(--shadow)}
+  .stat .num{font-size:2.2rem; font-weight:900; color:#1f2937}
+  .stat .lbl{color:#4b5563}
+  /* Signs */
+  .signs-grid{display:grid; gap:18px}
+  @media(min-width:900px){ .signs-grid{grid-template-columns:repeat(2,1fr)} }
+  details{background:#fff; border:1px solid #e5e7eb; border-radius:16px; padding:18px 20px; box-shadow:var(--shadow)}
+  summary{cursor:pointer; font-weight:800; color:#111827}
+  .important{background:#fff7ed; border-left:4px solid #f59e0b; padding:14px; border-radius:9px; color:#111827}
+  /* Prevention */
+  .grid-pre{display:grid; gap:22px; margin-bottom:18px}
+  @media(min-width:900px){ .grid-pre{grid-template-columns:1fr 1fr} }
+  .pre-img{width:100%; height:280px; object-fit:cover; border-radius:18px; box-shadow:var(--shadow)}
+  .tips{display:grid; gap:18px}
+  @media(min-width:900px){ .tips{grid-template-columns:repeat(3,1fr)} }
+  .tip{background:#fff; border:1px solid #e5e7eb; border-radius:16px; padding:20px; box-shadow:var(--shadow)}
+  /* Help */
+  .help-banner{width:100%; height:240px; object-fit:cover; border-radius:18px; box-shadow:var(--shadow)}
+  .help-grid{display:grid; gap:18px; margin:22px 0}
+  @media(min-width:900px){ .help-grid{grid-template-columns:repeat(4,1fr)} }
+  .help-card{background:#fff; border:1px solid #e5e7eb; border-radius:16px; padding:18px; box-shadow:var(--shadow)}
+  .help-card .title{font-weight:800}
+  .pill{font-size:.78rem; padding:.15rem .5rem; border-radius:999px; border:1px solid #e5e7eb; display:inline-block; margin-bottom:8px}
+  .pill.red{background:#fee2e2; color:#991b1b}
+  .pill.blue{background:#e0e7ff; color:#3730a3}
+  .pill.violet{background:#f3e8ff; color:#6d28d9}
+  .number{font-size:2rem; font-weight:900; color:var(--danger); margin:.35rem 0 .2rem}
+  /* Form */
+  .form{display:grid; gap:16px}
+  .grid-2{display:grid; gap:16px}
+  @media(min-width:900px){ .grid-2{grid-template-columns:1fr 1fr} }
+  label{font-weight:700; color:#111827}
+  input, textarea{
+    width:100%; padding:12px 12px; border-radius:12px; border:1px solid #d1d5db; background:#fff; color:#111827;
+  }
+  .submit{background:linear-gradient(90deg,#ef4444,#f97316); color:#fff; border:0; padding:14px; border-radius:12px; font-size:1rem; font-weight:800}
+  /* Footer */
+  footer{background:#0f172a; color:#e5e7eb; margin-top:40px}
+  footer .inner{padding:24px 0}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <div class="brand-badge">🛡︎</div>
+      <div>Child Protection</div>
+    </div>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#signs">Signs</a>
+      <a href="#prevention">Prevention</a>
+      <a href="#help">Get Help</a>
+      <a class="callbtn" href="tel:1098">📞 Call 1098</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO with original violet overlay style; other text is black in sections below -->
+<section class="hero">
+  <div class="hero-inner container">
+    <div class="kicker">Every Child Deserves Protection</div>
+    <h1>Recognize. Report. Protect.</h1>
+    <p>Every child deserves a safe childhood. Learn how to identify signs of abuse and take action.</p>
+    <div class="cta-row">
+      <a class="btn" href="#signs">Learn the Signs</a>
+      <a class="btn secondary" href="#help">Get Help Now</a>
+    </div>
+    <div class="badge-helpline">
+      <div style="font-weight:700; color:#111827">24/7 Emergency Helpline</div>
+      <div class="big">1098</div>
+      <div style="color:#475569; font-weight:600">Free &amp; Confidential</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <h2>Understanding Child Abuse</h2>
+    <div class="grid2">
+      <div class="card pad">
+        <p class="lead">
+          Child abuse is any action by another person that causes significant harm to a child. It can be physical,
+          sexual, emotional, or neglect. Recognizing the signs and knowing how to respond can save a child's life.
+        </p>
+        <div class="note"><strong>Remember:</strong> If you suspect a child is being abused, it's better to report and be wrong than to stay silent.
+          You could save a child's life.</div>
+      </div>
+      <img class="about-img" alt="Together we can - woman helping girl read"
+        src="https://img.freepik.com/premium-photo/woman-child-are-reading-book-together_1306135-47721.jpg">
+    </div>
+
+    <div class="stats" style="margin-top:22px">
+      <div class="stat"><div class="num">1098</div><div class="lbl">National Helpline Number</div></div>
+      <div class="stat"><div class="num">24/7</div><div class="lbl">Available Round the Clock</div></div>
+      <div class="stat"><div class="num">100%</div><div class="lbl">Confidential Support</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNS -->
+<section id="signs">
+  <div class="container">
+    <h2>Recognizing the Signs</h2>
+    <p class="lead">Being aware of these warning signs can help you identify when a child may need help.</p>
+
+    <div class="signs-grid" style="margin-top:14px">
+      <details open>
+        <summary>Physical Abuse</summary>
+        <ul>
+          <li>Unexplained bruises, burns, or injuries</li>
+          <li>Frequent injuries or patterns of injury</li>
+          <li>Fear of going home or being with certain people</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Emotional Abuse</summary>
+        <ul>
+          <li>Low self-esteem, depression, excessive fear or anxiety</li>
+          <li>Difficulty forming relationships</li>
+          <li>Delayed emotional development</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Sexual Abuse</summary>
+        <ul>
+          <li>Inappropriate sexual knowledge or behavior</li>
+          <li>Fear of certain people or places</li>
+          <li>Difficulty walking or sitting</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Neglect</summary>
+        <ul>
+          <li>Poor hygiene or inappropriate clothing</li>
+          <li>Frequent absence from school</li>
+          <li>Lack of medical or dental care</li>
+        </ul>
+      </details>
+    </div>
+
+    <div class="important" style="margin-top:18px">
+      <strong>Important:</strong> The presence of one sign doesn't necessarily mean abuse is occurring. However, if you notice multiple signs or patterns, it's important to take action.
+    </div>
+  </div>
+</section>
+
+<!-- PREVENTION -->
+<section id="prevention" style="background:#eef2ff">
+  <div class="container">
+    <h2>Prevention Starts With You</h2>
+    <p class="lead">Simple steps everyone can take to create a safer environment for children.</p>
+
+    <div class="grid-pre" style="margin-top:18px">
+      <!-- Left image - hands together -->
+      <img class="pre-img" alt="Hands joining together"
+        src="https://img.freepik.com/premium-photo/hands-heart-emoji-with-group-people-outdoor-together-summer-love-solidarity-social-media-icon-hand-gesture-with-friends-outside-nature-sustainability-bonding_590464-182987.jpg?w=2000">
+      <!-- Right image - hands on tree -->
+      <img class="pre-img" alt="Hands on tree trunk"
+        src="https://tse1.mm.bing.net/th/id/OIP.XsT6-SiULjWHoL16_WklRAHaLM?rs=1&pid=ImgDetMain">
+    </div>
+
+    <div class="tips">
+      <div class="tip">
+        <h3>Educate Children</h3>
+        Teach children about body safety, appropriate touch, and that they have the right to say no.
+      </div>
+      <div class="tip">
+        <h3>Open Communication</h3>
+        Create an environment where children feel safe to talk about their feelings and experiences.
+      </div>
+      <div class="tip">
+        <h3>Monitor Relationships</h3>
+        Know who spends time with your children and be aware of any concerning behavior.
+      </div>
+      <div class="tip">
+        <h3>Build Support Networks</h3>
+        Connect with other parents, teachers, and community members to create a protective environment.
+      </div>
+      <div class="tip">
+        <h3>Trust Your Instincts</h3>
+        If something feels wrong, it probably is. Don't ignore warning signs or gut feelings.
+      </div>
+      <div class="tip">
+        <h3>Stay Informed</h3>
+        Learn about child development, abuse prevention, and local resources available to help.
+      </div>
+    </div>
+
+    <div class="card pad" style="margin-top:18px">
+      <h3 style="margin:0 0 8px; color:#0f172a">Remember: Prevention is a Community Effort</h3>
+      <p class="lead">Creating a safe environment for children requires everyone's involvement. By staying informed, vigilant, and supportive, we can work together to prevent child abuse and protect our most vulnerable.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HELP -->
+<section id="help">
+  <div class="container">
+    <h2>Get Help Now</h2>
+    <p class="lead">If you suspect child abuse or need assistance, reach out immediately. Help is available 24/7.</p>
+
+    <img class="help-banner" alt="We'll look after you sign"
+      src="https://images.unsplash.com/photo-1718087036737-62d69f635ba3?auto=format&fit=crop&w=1600&q=60">
+
+    <!-- Helpline cards -->
+    <div class="help-grid">
+      <div class="help-card">
+        <span class="pill red">Emergency</span>
+        <div class="title">Childline India</div>
+        <div class="number">1098</div>
+        <div class="muted">24/7 free helpline for children in distress</div>
+      </div>
+      <div class="help-card">
+        <span class="pill blue">Support</span>
+        <div class="title">Women &amp; Child Helpline</div>
+        <div class="number" style="color:#0f172a">181</div>
+        <div class="muted">Support for women and children in need</div>
+      </div>
+      <div class="help-card">
+        <span class="pill red">Emergency</span>
+        <div class="title">Police Emergency</div>
+        <div class="number">100</div>
+        <div class="muted">Immediate law enforcement assistance</div>
+      </div>
+      <div class="help-card" style="border:2px solid #ef4444">
+        <span class="pill violet">Legal</span>
+        <div class="title">Child Welfare Committee</div>
+        <div class="number" style="color:#ef4444">Local CWC</div>
+        <div class="muted">Contact your local Child Welfare Committee</div>
+      </div>
+    </div>
+
+    <!-- Contact Form (mock) -->
+    <div class="card pad">
+      <h3 style="margin:0 0 12px; color:#0f172a">Emergency Contact Form</h3>
+      <p class="muted" style="color:#111827">Submit your contact information. This form is for documentation purposes. For immediate emergencies, please call 1098.</p>
+
+      <form class="form" onsubmit="return onSubmitMock(event)">
+        <div class="grid-2">
+          <div>
+            <label for="name">Full Name *</label>
+            <input id="name" required placeholder="Enter your name">
+          </div>
+          <div>
+            <label for="phone">Phone Number *</label>
+            <input id="phone" required placeholder="Enter your phone">
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <label for="email">Email Address</label>
+            <input id="email" type="email" placeholder="Enter your email">
+          </div>
+          <div>
+            <label for="loc">Location</label>
+            <input id="loc" placeholder="City/Area">
+          </div>
+        </div>
+
+        <div>
+          <label for="msg">Additional Information</label>
+          <textarea id="msg" rows="4" placeholder="Provide any relevant details (optional)"></textarea>
+        </div>
+
+        <div class="note" style="margin-top:4px"><strong>Confidentiality Notice:</strong> All information submitted is kept strictly confidential and will only be used for support purposes.</div>
+
+        <button class="submit" type="submit">Submit Contact Information</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container inner" style="display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap">
+    <div>© <span id="year"></span> Child Protection Initiative. All rights reserved.</div>
+    <div>Made with care for every child's safety.</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  function onSubmitMock(e){
+    e.preventDefault();
+    const data = {
+      name: document.getElementById('name').value,
+      phone: document.getElementById('phone').value,
+      email: document.getElementById('email').value,
+      location: document.getElementById('loc').value,
+      message: document.getElementById('msg').value
+    };
+    const text = `EMERGENCY CONTACT\\nName: ${data.name}\\nPhone: ${data.phone}\\nEmail: ${data.email}\\nLocation: ${data.location}\\nMessage: ${data.message}`;
+    navigator.clipboard.writeText(text).catch(()=>{});
+    alert("Saved (mock). Details copied to clipboard. For emergencies, call 1098.");
+    e.target.reset();
+    return false;
+  }
+</script>
+
+</body>
+</html>
