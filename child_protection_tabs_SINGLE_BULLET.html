@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Child Protection — Recognize. Report. Protect.</title>
+  <meta name="description" content="Awareness, reporting, and support for child protection. Learn the signs, report safely, and help. Helpline 1098." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f6f8fc;
+      --panel:#ffffff;
+      --ink:#0b1220;
+      --muted:#4b5563;
+      --ring:rgba(37,99,235,.35);
+      --brand:#1e3a8a; /* deep blue */
+      --brand-soft:#e8efff;
+      --cta:#ef4444; /* report/alert */
+      --good:#059669; /* donate confirm */
+      --card:#f1f5ff;
+      --shadow:0 10px 30px rgba(2,6,23,.06);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+    a{color:#1d4ed8;text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1180px;margin:auto;padding:0 1rem}
+    header.sticky{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(10px);border-bottom:1px solid #e5e7eb}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 0}
+    .brand{display:flex;align-items:center;gap:.6rem;font-weight:800;color:var(--brand)}
+    .badge{font-size:.78rem;padding:.25rem .55rem;border-radius:.6rem;background:var(--brand-soft);border:1px solid #dbe7ff}
+    .navlinks{display:flex;gap:1rem;flex-wrap:wrap}
+    .navlinks a{padding:.4rem .7rem;border-radius:.6rem;color:#1f2937}
+    .navlinks a:hover{background:#eef2ff}
+    .cta{display:inline-flex;gap:.5rem;align-items:center;background:var(--brand);color:#fff;border:0;padding:.6rem .95rem;border-radius:.8rem;font-weight:700;box-shadow:var(--shadow)}
+    .cta.alt{background:var(--cta)}
+    .cta.ghost{background:#fff;color:var(--brand);border:1px solid #dbe7ff}
+    .cta:hover{opacity:.95;transform:translateY(-1px)}
+    .hero{position:relative;isolation:isolate}
+    .hero .wrap{display:grid;gap:2rem;grid-template-columns:1.2fr .8fr;align-items:center;padding:3.5rem 0}
+    @media(max-width:900px){.hero .wrap{grid-template-columns:1fr;padding:2.5rem 0}}
+    .headline{font-size:clamp(2.2rem,4vw,3.3rem);line-height:1.12;margin:0 0 .6rem;font-weight:800;letter-spacing:-.01em;color:#0b1220}
+    .sub{color:#334155;max-width:700px;margin:.2rem 0 1.2rem}
+    .statcard{display:flex;gap:1rem;align-items:center;background:#fff;border:1px solid #e5e7eb;border-radius:1rem;padding:1rem 1.2rem;box-shadow:var(--shadow);width:max-content}
+    .heroimg{position:relative;min-height:420px;border-radius:1.2rem;overflow:hidden;box-shadow:var(--shadow);border:1px solid #e5e7eb}
+    .heroimg::before{
+      content:"";position:absolute;inset:0;
+      background:
+        linear-gradient(105deg, rgba(30,58,138,.65) 0%, rgba(37,99,235,.4) 45%, rgba(30,58,138,.2) 100%),
+        url('https://images.unsplash.com/photo-1475609471617-0ef53b59cff5?q=80&w=1974&auto=format&fit=crop'); /* parent hugging child (same as before feel) */
+      background-size:cover;background-position:center;
+      filter:saturate(105%);
+      z-index:-1;
+    }
+    section{padding:3.2rem 0}
+    h2{font-size:clamp(1.5rem,2.2vw,2.2rem);margin:.2rem 0 1.1rem}
+    .kicker{letter-spacing:.18em;text-transform:uppercase;color:#64748b;font-weight:700;font-size:.78rem}
+    .panel{background:var(--panel);border:1px solid #e5e7eb;border-radius:1rem;box-shadow:var(--shadow);padding:1.25rem}
+    .grid{display:grid;gap:1.25rem}
+    @media(min-width:900px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}.grid.cols-2{grid-template-columns:repeat(2,1fr)}}
+    /* Image cards (clean crop, no stretching) */
+    .imgwrap{position:relative;border-radius:1rem;overflow:hidden;background:#000;box-shadow:var(--shadow);border:1px solid #e5e7eb;min-height:320px}
+    .img{position:absolute;inset:0;background-size:cover;background-position:center}
+    .caption{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.45));color:#fff;padding:1rem 1.1rem;font-weight:600}
+    .card{background:#fff;border:1px solid #e5e7eb;border-radius:1rem;padding:1.25rem;box-shadow:var(--shadow)}
+    .card h3{margin:.1rem 0 .4rem}
+    .list{display:grid;gap:.6rem}
+    .list li{display:flex;gap:.55rem;align-items:flex-start}
+    .dot{width:.55rem;height:.55rem;border-radius:50%;background:#2563eb;margin-top:.42rem;flex:0 0 auto}
+    /* Split sections (Layout B variants) */
+    .split{display:grid;gap:1.5rem;grid-template-columns:1.05fr 1fr;align-items:center}
+    @media(max-width:1000px){.split{grid-template-columns:1fr}}
+    .note{padding:1rem;border:1px dashed #c7d2fe;background:#f5f7ff;border-radius:.9rem;color:#1f2937}
+    /* Buttons row */
+    .row{display:flex;gap:.6rem;flex-wrap:wrap}
+    /* Report form */
+    .form{display:grid;gap:1rem}
+    .field{display:grid;gap:.35rem}
+    label{font-size:.92rem;color:#475569;font-weight:600}
+    input,select,textarea{background:#fff;color:var(--ink);border:1px solid #d1d5db;border-radius:.7rem;padding:.7rem .8rem}
+    input:focus,select:focus,textarea:focus{outline:3px solid var(--ring);border-color:transparent}
+    textarea{min-height:110px;resize:vertical}
+    /* Footer */
+    footer{padding:2rem 0;border-top:1px solid #e5e7eb;color:#4b5563}
+    /* Donate modal */
+    .modal{position:fixed;inset:0;background:rgba(2,6,23,.55);display:none;align-items:center;justify-content:center;padding:1rem;z-index:80}
+    .modal.open{display:flex}
+    .sheet{background:#fff;max-width:520px;width:100%;border-radius:1rem;box-shadow:0 25px 80px rgba(2,6,23,.25);border:1px solid #e5e7eb}
+    .sheet header{padding:1rem 1.25rem;border-bottom:1px solid #eef2ff;display:flex;justify-content:space-between;align-items:center}
+    .sheet .body{padding:1.25rem}
+    .x{background:#f3f4f6;border:1px solid #e5e7eb;border-radius:.6rem;padding:.35rem .6rem;cursor:pointer}
+    .donate-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
+    .chip{padding:.6rem .8rem;border:1px solid #d1d5db;background:#fff;border-radius:.7rem;text-align:center;cursor:pointer;font-weight:600}
+    .chip.sel{border-color:#2563eb;background:#eef2ff}
+    .mt-2{margin-top:.5rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}
+  </style>
+</head>
+<body>
+<header class="sticky">
+  <div class="container">
+    <nav>
+      <div class="brand"><span class="badge">SAFEKIDS</span><span>Recognize Report Protect</span></div>
+      <div class="navlinks">
+        <a href="#home">Home</a>
+        <a href="#about">Awareness</a>
+        <a href="#help">How to Help</a>
+        <a href="#report">Report</a>
+      </div>
+      <div class="row">
+        <a class="cta ghost" href="#donate" onclick="openDonate()">❤️ Donate</a>
+        <a class="cta alt" href="tel:1098">📞 Call 1098</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="home" class="hero">
+  <div class="container hero">
+    <div class="wrap">
+      <div>
+        <p class="kicker">Every child deserves protection</p>
+        <h1 class="headline">Recognize. Report. Protect.</h1>
+        <p class="sub">Learn the warning signs, how to act safely, and where to get help. If a child is in immediate danger, call <b>1098</b> or Police <b>112/100</b>.</p>
+        <div class="row">
+          <a class="cta" href="#report">✍️ Report Now</a>
+          <a class="cta ghost" href="#about">Learn the Signs</a>
+        </div>
+        <div class="mt-3 statcard">
+          <div>
+            <div style="font-size:1.6rem;font-weight:800;line-height:1">1098</div>
+            <div style="font-size:.9rem;color:#475569">24/7 Childline (India)</div>
+          </div>
+        </div>
+      </div>
+      <div class="heroimg" aria-label="Parent hugging child background"></div>
+    </div>
+  </div>
+</main>
+
+<section id="about">
+  <div class="container">
+    <p class="kicker">Awareness</p>
+    <div class="split">
+      <!-- Layout B: Image LEFT, Text RIGHT -->
+      <div class="imgwrap" aria-hidden="true">
+        <div class="img" style="background-image:url('https://img.freepik.com/premium-photo/hands-heart-emoji-with-group-people-outdoor-together-summer-love-solidarity-social-media-icon-hand-gesture-with-friends-outside-nature-sustainability-bonding_590464-182987.jpg?w=1200');"></div>
+        <div class="caption">Together we protect every child</div>
+      </div>
+      <div>
+        <h2>Understanding Child Abuse</h2>
+        <p>Child abuse can be <b>physical</b>, <b>emotional</b>, <b>sexual</b>, or <b>neglect</b>. Recognizing the signs and knowing how to respond may save a child's life.</p>
+        
+<div class="panel" style="margin-top:1rem;">
+  <div style="display:flex;gap:1rem;border-bottom:1px solid #e5e7eb;padding-bottom:.5rem;">
+    <button class="tabBtn active" onclick="openTab(event,'warn')" style="padding:.7rem 1.2rem;border:none;border-radius:.6rem;background:#1e3a8a;color:white;font-weight:600;">Warning Signs</button>
+    <button class="tabBtn" onclick="openTab(event,'help')" style="padding:.7rem 1.2rem;border:none;border-radius:.6rem;background:#e8efff;color:#1e3a8a;font-weight:600;">What You Can Do</button>
+  </div>
+
+  <div id="warn" class="tabPanel" style="padding:1.2rem;">
+    <ul style="line-height:1.9;font-size:1.05rem; list-style:none; padding-left:0;">
+      <li>Unexplained injuries or frequent “accidents”.</li>
+      <li>Extreme fear, withdrawal, or sudden behavior change.</li>
+      <li>Knowledge/behavior not age-appropriate.</li>
+    </ul>
+  </div>
+
+  <div id="help" class="tabPanel" style="padding:1.2rem;display:none;">
+    <ul style="line-height:1.9;font-size:1.05rem; list-style:none; padding-left:0;">
+      <li>Ensure immediate safety and stay calm.</li>
+      <li>Listen, don’t promise secrecy, document facts.</li>
+      <li>Call <b>1098</b> or report to authorities.</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+function openTab(evt,id){
+  document.querySelectorAll('.tabPanel').forEach(p=>p.style.display='none');
+  document.getElementById(id).style.display='block';
+  document.querySelectorAll('.tabBtn').forEach(b=>b.classList.remove('active'));
+  evt.currentTarget.classList.add('active');
+}
+</script>
+
+          
+        </div>
+        <div class="note mt-3"><b>Remember:</b> Reasonable concern is enough to report. You don’t need “proof”.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="help">
+  <div class="container">
+    <p class="kicker">Get involved</p>
+    <h2>How You Can Help</h2>
+    <!-- Layout B: Text LEFT, Image RIGHT -->
+    <div class="split mt-3">
+      <div>
+        <div class="grid cols-3">
+          <div class="card">
+            <h3>Report Abuse</h3>
+            <p>Take action when you see something wrong. Call <b>1098</b>.</p>
+          </div>
+          <div class="card">
+            <h3>Spread Awareness</h3>
+            <p>Share resources and learn body safety with children.</p>
+          </div>
+          <div class="card">
+            <h3>Support Children</h3>
+            <p>Donate or volunteer for child protection programs.</p>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <a class="cta" href="#report">✍️ Report Now</a>
+          <button class="cta" style="background:#0ea5e9" onclick="openDonate()">💙 Fundraising</button>
+          <a class="cta ghost" href="tel:1098">📞 Call 1098</a>
+        </div>
+      </div>
+      <div class="imgwrap" aria-hidden="true">
+        <div class="img" style="background-image:url('https://tse1.mm.bing.net/th/id/OIP.XsT6-SiULjWHoL16_WklRAHaLM?rs=1&pid=ImgDetMain');"></div>
+        <div class="caption">Many hands, one promise: safety</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="report">
+  <div class="container">
+    <p class="kicker">Report</p>
+    <h2>Quick Report Note (for your call)</h2>
+    <p class="muted" style="color:#475569">Use this to organize what to tell <b>1098</b> or the Police. You can copy or print.</p>
+    <form class="panel form" onsubmit="return handleReport(event)">
+      <div class="grid cols-2">
+        <div class="field">
+          <label for="what">What happened? (child’s words)</label>
+          <textarea id="what" required placeholder="‘He hit me yesterday…’"></textarea>
+        </div>
+        <div class="field">
+          <label for="when">When & where</label>
+          <input id="when" required placeholder="Date, time, location">
+        </div>
+      </div>
+      <div class="grid cols-2">
+        <div class="field">
+          <label for="who">Who is involved? (if known)</label>
+          <input id="who" placeholder="Name/relationship/description">
+        </div>
+        <div class="field">
+          <label for="safe">Is the child safe right now?</label>
+          <select id="safe" required>
+            <option value="">Select…</option>
+            <option>Yes, currently safe</option>
+            <option>No / Not sure</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <button class="cta" type="submit">Copy to Clipboard</button>
+        <button class="cta" type="button" style="background:#10b981" onclick="window.print()">Print</button>
+        <a class="cta alt" href="tel:1098">📞 Call 1098</a>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="row" style="justify-content:space-between;align-items:center">
+      <p>© <span id="year"></span> Safekids Built for awareness & education</p>
+      <a href="#home" class="badge">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Donate Modal -->
+<div id="donateModal" class="modal" aria-hidden="true">
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="donatettl">
+    <header>
+      <b id="donatettl">Support Children</b>
+      <button class="x" onclick="closeDonate()">✕</button>
+    </header>
+    <div class="body">
+      <p>Your contribution funds counseling, safe spaces, and awareness drives.</p>
+      <div class="donate-grid mt-3">
+        <div class="chip" onclick="pickAmt(200)">₹200</div>
+        <div class="chip" onclick="pickAmt(500)">₹500</div>
+        <div class="chip" onclick="pickAmt(1000)">₹1,000</div>
+        <div class="chip" onclick="pickAmt(2500)">₹2,500</div>
+        <div class="chip" onclick="pickAmt(5000)">₹5,000</div>
+        <div class="chip" onclick="pickAmt(0)">Other</div>
+      </div>
+      <div class="field mt-3">
+        <label for="amt">Amount (₹)</label>
+        <input id="amt" type="number" min="50" step="50" placeholder="e.g., 500">
+      </div>
+      <div class="row mt-3">
+        <button class="cta" style="background:var(--good)" onclick="fakePay()">Donate Securely</button>
+        <button class="cta ghost" onclick="closeDonate()">Cancel</button>
+      </div>
+      <p class="mt-2" style="font-size:.9rem;color:#64748b">Demo only. No real payment is processed.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // dynamic year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // report helper
+  function handleReport(e){
+    e.preventDefault();
+    const what=document.getElementById('what').value.trim();
+    const when=document.getElementById('when').value.trim();
+    const who=document.getElementById('who').value.trim()||'Not known';
+    const safe=document.getElementById('safe').value;
+    if(!what||!when||!safe){alert('Please fill required fields.');return false;}
+    const text=`CHILD ABUSE REPORT NOTE
+What happened: ${what}
+When/Where: ${when}
+Who is involved: ${who}
+Is the child safe now?: ${safe}
+
+I am calling to report in good faith and request immediate assistance.`;
+    navigator.clipboard.writeText(text).then(()=>{
+      alert('Copied! Now call 1098 or 112/100 to report.');
+    }).catch(()=>{
+      const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);
+      alert('Copied! Now call 1098 or 112/100 to report.');
+    });
+    return false;
+  }
+
+  // donate modal
+  const modal=document.getElementById('donateModal');
+  function openDonate(){ modal.classList.add('open'); }
+  function closeDonate(){ modal.classList.remove('open'); document.querySelectorAll('.chip').forEach(c=>c.classList.remove('sel')); document.getElementById('amt').value=''; }
+  function pickAmt(n){
+    document.querySelectorAll('.chip').forEach(c=>c.classList.remove('sel'));
+    event.target.classList.add('sel');
+    const input=document.getElementById('amt');
+    input.value = n>0 ? n : '';
+    input.focus();
+  }
+  function fakePay(){
+    const v=parseInt(document.getElementById('amt').value||'0',10);
+    if(isNaN(v)||v<50){alert('Please enter at least ₹50.');return;}
+    alert('Thank you! Your demo donation of ₹'+v+' is noted.');
+    closeDonate();
+  }
+</script>
+</body>
+</html>
